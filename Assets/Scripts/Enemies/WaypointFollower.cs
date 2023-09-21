@@ -14,7 +14,7 @@ public class WaypointFollower : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = waypoints[0].position;
+        transform.position = waypoints[0].position; //Set the Enemy position to the first waypoint position
     }
 
     // Update is called once per frame
