@@ -33,7 +33,7 @@ public class WaypointFollower : MonoBehaviour
         }
     }
 
-    void awake ()
+    void Awake ()
     {
         //path = FindAnyObjectByType<Path>();
     }
