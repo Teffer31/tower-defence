@@ -4,37 +4,34 @@ using UnityEngine;
 
 public class WaypointFollower : MonoBehaviour
 {
-    [SerializeField] private Transform[] waypoints;
     [SerializeField] private float speed = 1;
     [SerializeField] private int nextWaypointIndex = 1;
     [SerializeField] private float reachedWaypointClearance = 0.25f;
     [SerializeField] private Path path;
 
-
+    void Awake()
+    {
+        path = FindObjectOfType<Path>();
+    }
 
     void Start()
     {
-        transform.position = waypoints[0].position; //Set the Enemy position to the first waypoint position
+        transform.position = path.waypoints[0].position; //Set the Enemy position to the first waypoint position
     }
 
 
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, waypoints[nextWaypointIndex].position, Time.deltaTime * speed); //moves the enemy
+        transform.position = Vector3.MoveTowards(transform.position, path.waypoints[nextWaypointIndex].position, Time.deltaTime * speed); //moves the enemy
 
-        if (Vector3.Distance(transform.position, waypoints[nextWaypointIndex].position) <= reachedWaypointClearance) //check distance between the Enemy and the next waypoint
+        if (Vector3.Distance(transform.position, path.waypoints[nextWaypointIndex].position) <= reachedWaypointClearance) //check distance between the Enemy and the next waypoint
         {
             nextWaypointIndex += 1; //goes to next waypoint
         }
 
-        if(nextWaypointIndex >= waypoints.Length)  //checks if the nextWaypointIndex is greater or equal than the amount of waypoints
+        if(nextWaypointIndex >= path.waypoints.Length)  //checks if the nextWaypointIndex is greater or equal than the amount of waypoints
         {
             nextWaypointIndex = 0; //sets waypoint back to zero
         }
-    }
-
-    void Awake ()
-    {
-        //path = FindAnyObjectByType<Path>();
     }
 }
