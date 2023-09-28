@@ -16,7 +16,9 @@ public class Tower : MonoBehaviour
             return; 
         }
 
-        Transform target = targets[0].transform;
+         target = targets[0].transform;
+
+        LookAtTarget();
     }
 
     public void LookAtTarget()
