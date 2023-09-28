@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Path : MonoBehaviour
 {
-    [SerializeField] public Transform[] waypoints;
+    [SerializeField] public Transform[] waypoints; //can add waypoint in unity editor
 }

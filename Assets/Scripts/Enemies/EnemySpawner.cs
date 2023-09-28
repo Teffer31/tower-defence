@@ -9,14 +9,14 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine("SpawnEnemy");
+        StartCoroutine("SpawnEnemy"); //starts the function
     }
 
     IEnumerator SpawnEnemy()
     {
         while (true) 
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(1); //spawns enemy prefab every 1 second
             Instantiate(enemyPrefab);
         }
     }

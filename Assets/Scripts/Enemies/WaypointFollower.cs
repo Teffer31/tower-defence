@@ -11,7 +11,7 @@ public class WaypointFollower : MonoBehaviour
 
     void Awake()
     {
-        path = FindObjectOfType<Path>();
+        path = FindObjectOfType<Path>(); //finds the game ombject "path"
     }
 
     void Start()
