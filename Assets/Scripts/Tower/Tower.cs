@@ -11,7 +11,7 @@ public class Tower : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //StartCoroutine(Shoot());
+        StartCoroutine(Shoot());
     }
 
     // Update is called once per frame
@@ -35,8 +35,12 @@ public class Tower : MonoBehaviour
         transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
     }
 
-    //IEnumerator Shoot()
-    //{
-//
-    //}
+    IEnumerator Shoot()
+    {
+        GameObject projectileGameObject = Instantiate(projectilePrefab);
+        Projectile projectile = projectileGameObject.GetComponent<Projectile>();
+        projectile.target = target;
+        while (true) { yield return new WaitForSeconds(shootInterval); }
+
+    }
 }
