@@ -35,12 +35,15 @@ public class Tower : MonoBehaviour
         transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
     }
 
-    IEnumerator Shoot()
-    {
-        GameObject projectileGameObject = Instantiate(projectilePrefab);
-        Projectile projectile = projectileGameObject.GetComponent<Projectile>();
-        projectile.target = target;
-        while (true) { yield return new WaitForSeconds(shootInterval); }
+    public IEnumerator Shoot()
+    {       
+        while (true) 
+        {
+            yield return new WaitForSeconds(shootInterval);
+            GameObject projectileGameObject = Instantiate(projectilePrefab);
+            Projectile projectile = projectileGameObject.GetComponent<Projectile>();
+            projectile.target = target;
+        }
 
     }
 }

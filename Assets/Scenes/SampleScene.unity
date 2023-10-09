@@ -466,7 +466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aed7032e1a6baa4a9c6529ecff15974, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 5829975109608557276, guid: 8c6d2bf95d5ad4d48840956d1420055a, type: 3}
   projectilePrefab: {fileID: 2326952464880106054, guid: 2e18f63353200c940b6526fbaec3a468, type: 3}
   shootInterval: 1
 --- !u!212 &824154447
