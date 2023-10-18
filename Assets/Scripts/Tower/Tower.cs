@@ -24,7 +24,16 @@ public class Tower : MonoBehaviour
             return; 
         }
 
-         target = targets[0].transform;
+        float nearestDistance = 100;
+        for (int i = 0; i < targets.Length; i++) 
+        {
+            float distance = Vector2.Distance(transform.position, targets[i].transform.position);
+            if (distance < nearestDistance)
+            {
+                target = targets[i].transform;
+                nearestDistance = distance;
+            }
+        }
 
         LookAtTarget();
     }

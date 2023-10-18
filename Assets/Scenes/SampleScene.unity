@@ -416,6 +416,7 @@ GameObject:
   - component: {fileID: 756458396}
   - component: {fileID: 756458395}
   - component: {fileID: 756458397}
+  - component: {fileID: 756458398}
   m_Layer: 0
   m_Name: TowerSlot (0..2)
   m_TagString: Untagged
@@ -521,6 +522,19 @@ PolygonCollider2D:
       - {x: 0.25, y: -0.43359375}
       - {x: 0.5, y: 0}
       - {x: 0.25, y: 0.43359375}
+--- !u!114 &756458398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756458394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e17fac1cd617ef04ea09669734f32613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tower: {fileID: 0}
 --- !u!1 &771593621
 GameObject:
   m_ObjectHideFlags: 0
@@ -656,6 +670,7 @@ GameObject:
   - component: {fileID: 1324981963}
   - component: {fileID: 1324981962}
   - component: {fileID: 1324981964}
+  - component: {fileID: 1324981965}
   m_Layer: 0
   m_Name: TowerSlot (0..1)
   m_TagString: Untagged
@@ -761,6 +776,19 @@ PolygonCollider2D:
       - {x: 0.25, y: -0.43359375}
       - {x: 0.5, y: 0}
       - {x: 0.25, y: 0.43359375}
+--- !u!114 &1324981965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1324981961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e17fac1cd617ef04ea09669734f32613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tower: {fileID: 0}
 --- !u!1001 &1288247659943343956
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -769,13 +797,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -2884924686207506953, guid: a22bd9d6308c97d4fac7f49adfa0a2b1, type: 3}
+      propertyPath: towerPrefab
+      value: 
+      objectReference: {fileID: 2321271192419545761, guid: 706441f9708ae5f45bf86467ea8eb5e6, type: 3}
+    - target: {fileID: -2884924686207506953, guid: a22bd9d6308c97d4fac7f49adfa0a2b1, type: 3}
       propertyPath: towerSlots.Array.data[0]
       value: 
-      objectReference: {fileID: 1324981961}
+      objectReference: {fileID: 1324981965}
     - target: {fileID: -2884924686207506953, guid: a22bd9d6308c97d4fac7f49adfa0a2b1, type: 3}
       propertyPath: towerSlots.Array.data[1]
       value: 
-      objectReference: {fileID: 756458394}
+      objectReference: {fileID: 756458398}
     - target: {fileID: 312487043016189361, guid: a22bd9d6308c97d4fac7f49adfa0a2b1, type: 3}
       propertyPath: m_Name
       value: TowerPlacement
