@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject enemyPrefab;
-    
+    [SerializeField] private GameObject slime;
+    [SerializeField] private GameObject bee;
+        
 
     void Start()
     {
@@ -17,7 +18,8 @@ public class EnemySpawner : MonoBehaviour
         while (true) 
         {
             yield return new WaitForSeconds(1); //spawns enemy prefab every 1 second
-            Instantiate(enemyPrefab);
+            Instantiate(slime);
+            Instantiate(bee);
         }
     }
 }
