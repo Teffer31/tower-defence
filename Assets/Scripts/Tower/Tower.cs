@@ -7,6 +7,8 @@ public class Tower : MonoBehaviour
     [SerializeField] private Transform target;
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private float shootInterval = 1;
+    [SerializeField] Transform towerTrans;
+    [SerializeField] private Transform bulletcase;
 
     // Start is called before the first frame update
     void Start()
@@ -41,17 +43,21 @@ public class Tower : MonoBehaviour
     public void LookAtTarget()
     {
         Vector2 direction = target.position - transform.position;
-        transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
+        towerTrans.rotation = Quaternion.FromToRotation(Vector3.up, direction);
     }
 
     public IEnumerator Shoot()
     {       
         while (true) 
         {
-            yield return new WaitForSeconds(shootInterval);
-            GameObject projectileGameObject = Instantiate(projectilePrefab);
-            Projectile projectile = projectileGameObject.GetComponent<Projectile>();
-            projectile.target = target;
+            if (target != null)
+            {
+                yield return new WaitForSeconds(shootInterval);
+                GameObject projectileGameObject = Instantiate(projectilePrefab, towerTrans.position, Quaternion.Euler(Vector2.zero), bulletcase);
+                Projectile projectile = projectileGameObject.GetComponent<Projectile>();
+                projectile.target = target;
+            }
+            else { yield return null; }
         }
 
     }
