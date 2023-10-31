@@ -9,16 +9,25 @@ public class WaypointFollower : MonoBehaviour
     [SerializeField] private float reachedWaypointClearance = 0.25f;
     [SerializeField] private Path path;
 
-    void Awake()
+    private Path Path
     {
-        path = FindObjectOfType<Path>(); //finds the game object "path"
+        get
+        {
+            if (path == null)
+            {
+                path = FindObjectOfType<Path>();
+            }
+            return path;
+        }
     }
 
     void Start()
     {
-        transform.position = path.waypoints[0].position; //Set the Enemy position to the first waypoint position
+        if (Path.waypoints.Length > 0)
+        {
+            transform.position = Path.waypoints[0].position;
+        }
     }
-
 
     void Update()
     {
@@ -26,12 +35,24 @@ public class WaypointFollower : MonoBehaviour
 
         if (Vector3.Distance(transform.position, path.waypoints[nextWaypointIndex].position) <= reachedWaypointClearance) //check distance between the Enemy and the next waypoint
         {
-            nextWaypointIndex += 1; //goes to next waypoint
+            MoveToNextWaypoint();
         }
+    }
 
-        if(nextWaypointIndex >= path.waypoints.Length)  //checks if the nextWaypointIndex is greater or equal than the amount of waypoints
+    void MoveToNextWaypoint()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, Path.waypoints[nextWaypointIndex].position, Time.deltaTime * speed);
+
+        if (Vector3.Distance(transform.position, Path.waypoints[nextWaypointIndex].position) <= reachedWaypointClearance)
         {
-            nextWaypointIndex = 0; //sets waypoint back to zero
+            if (nextWaypointIndex == Path.waypoints.Length - 1)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                nextWaypointIndex += 1;
+            }
         }
     }
 }
