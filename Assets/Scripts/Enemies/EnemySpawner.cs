@@ -6,7 +6,8 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private GameObject slime;
     [SerializeField] private GameObject bee;
-        
+    [SerializeField] private GameObject wolf;
+
 
     void Start()
     {
@@ -20,6 +21,7 @@ public class EnemySpawner : MonoBehaviour
             yield return new WaitForSeconds(1); //spawns enemy prefab every 1 second
             Instantiate(slime);
             Instantiate(bee);
+            Instantiate(wolf);
         }
     }
 }
