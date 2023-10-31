@@ -31,9 +31,7 @@ public class WaypointFollower : MonoBehaviour
 
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, path.waypoints[nextWaypointIndex].position, Time.deltaTime * speed); //moves the enemy
-
-        if (Vector3.Distance(transform.position, path.waypoints[nextWaypointIndex].position) <= reachedWaypointClearance) //check distance between the Enemy and the next waypoint
+        if (Path.waypoints.Length > 0)
         {
             MoveToNextWaypoint();
         }
