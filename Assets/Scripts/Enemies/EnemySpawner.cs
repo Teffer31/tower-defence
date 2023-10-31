@@ -4,24 +4,59 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject slime;
-    [SerializeField] private GameObject bee;
-    [SerializeField] private GameObject wolf;
-
-
-    void Start()
+    [System.Serializable]
+    public class Round
     {
-        StartCoroutine("SpawnEnemy"); //starts the function
+        public List<GameObject> enemiesToSpawn;
+        public float timeBetweenSpawns = 1.0f;
     }
 
-    IEnumerator SpawnEnemy()
+    [SerializeField] private List<Round> rounds = new List<Round>();
+    private int currentRound = 0;
+    private int currentEnemyIndex = 0;
+    private bool roundInProgress = false;
+
+    private void Start()
     {
-        while (true) 
+        StartCoroutine(ManageRounds());
+    }
+
+    IEnumerator ManageRounds()
+    {
+        while (currentRound < rounds.Count)
         {
-            yield return new WaitForSeconds(1); //spawns enemy prefab every 1 second
-            Instantiate(slime);
-            Instantiate(bee);
-            Instantiate(wolf);
+            if (!roundInProgress)
+            {
+                StartCoroutine(StartRound());
+            }
+            yield return null;
         }
+    }
+
+    IEnumerator StartRound()
+    {
+        roundInProgress = true;
+        Round round = rounds[currentRound];
+        List<GameObject> enemies = round.enemiesToSpawn;
+        float spawnDelay = round.timeBetweenSpawns;
+
+        yield return new WaitForSeconds(3.0f); // Delay before starting the round.
+
+        while (currentEnemyIndex < enemies.Count)
+        {
+            Instantiate(enemies[currentEnemyIndex], transform.position, Quaternion.identity);
+            yield return new WaitForSeconds(spawnDelay);
+            currentEnemyIndex++;
+        }
+
+        // Wait until all enemies in the round are defeated.
+        while (currentEnemyIndex > 0)
+        {
+            yield return null;
+        }
+
+        currentRound++;
+        currentEnemyIndex = 0;
+        roundInProgress = false;
     }
 }
