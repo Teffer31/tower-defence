@@ -9243,7 +9243,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 46597be28d658264297174edc7994652, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -9573,7 +9573,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 46597be28d658264297174edc7994652, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -9909,6 +9909,10 @@ PrefabInstance:
       propertyPath: bee
       value: 
       objectReference: {fileID: 5829975109608557265, guid: 17e2d9c6f281add45abfbc2b28a40585, type: 3}
+    - target: {fileID: 8422250243919831677, guid: 8d3138df899616e43b1c16e40988f547, type: 3}
+      propertyPath: wolf
+      value: 
+      objectReference: {fileID: 5829975109608557265, guid: eb2fb4d516fad10449c7b76154840b20, type: 3}
     - target: {fileID: 8422250243919831677, guid: 8d3138df899616e43b1c16e40988f547, type: 3}
       propertyPath: slime
       value: 
