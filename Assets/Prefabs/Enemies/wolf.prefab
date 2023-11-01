@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5829975109608557278}
   - component: {fileID: 2291588052178191183}
   - component: {fileID: 2262819199730738556}
+  - component: {fileID: 8190154871339306845}
   m_Layer: 0
   m_Name: wolf
   m_TagString: Enemy
@@ -140,3 +141,16 @@ CircleCollider2D:
   m_Offset: {x: -0.0071533173, y: 0}
   serializedVersion: 2
   m_Radius: 0.16617696
+--- !u!114 &8190154871339306845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5829975109608557265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24686b36b1b6a6647b7c6a7f4868e53e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageToPlayer: 10
